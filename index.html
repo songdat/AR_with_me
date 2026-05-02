@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Web AR</title>
+
+  <!-- A-Frame -->
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+
+  <!-- AR.js -->
+  <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.js"></script>
+
+  <style>
+    body { margin: 0; overflow: hidden; }
+  </style>
+</head>
+
+<body>
+
+  <a-scene 
+    embedded 
+    arjs="sourceType: webcam; debugUIEnabled: false;"
+  >
+
+    <!-- Marker (Hiro) -->
+    <a-marker preset="hiro">
+
+      <!-- 3D Object -->
+      <a-box 
+        position="0 0.5 0" 
+        material="color: red;"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 3000">
+      </a-box>
+
+      <!-- Text -->
+      <a-text 
+        value="Hello AR!" 
+        position="0 1.2 0" 
+        align="center"
+        color="yellow">
+      </a-text>
+
+    </a-marker>
+
+    <!-- Camera -->
+    <a-entity camera></a-entity>
+
+  </a-scene>
+
+</body>
+</html>
